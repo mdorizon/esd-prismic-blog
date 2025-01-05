@@ -167,7 +167,10 @@ interface MenuDocumentData {
 export type MenuDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<MenuDocumentData>, "menu", Lang>;
 
-type PageDocumentDataSlicesSlice = AboutUsSlice | LastArticlesSlice;
+type PageDocumentDataSlicesSlice =
+  | ContactSlice
+  | AboutUsSlice
+  | LastArticlesSlice;
 
 /**
  * Content for Page documents
@@ -308,6 +311,36 @@ export type AboutUsSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Default variation for Contact Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *Contact*
+ */
+type ContactSliceVariation = ContactSliceDefault;
+
+/**
+ * Contact Shared Slice
+ *
+ * - **API ID**: `contact`
+ * - **Description**: Contact
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactSlice = prismic.SharedSlice<
+  "contact",
+  ContactSliceVariation
+>;
+
+/**
  * Primary content in *LastArticles → Default → Primary*
  */
 export interface LastArticlesSliceDefaultPrimary {
@@ -387,6 +420,9 @@ declare module "@prismicio/client" {
       AboutUsSliceDefaultPrimary,
       AboutUsSliceVariation,
       AboutUsSliceDefault,
+      ContactSlice,
+      ContactSliceVariation,
+      ContactSliceDefault,
       LastArticlesSlice,
       LastArticlesSliceDefaultPrimary,
       LastArticlesSliceVariation,

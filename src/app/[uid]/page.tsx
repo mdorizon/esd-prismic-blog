@@ -43,8 +43,8 @@ export default async function Page({ params }: { params: Promise<Params> }) {
 
   return (
     <div>
-      <h1>{prismic.asText(page.data.title)}</h1>
-      <p>{page.data.description}</p>
+      {/* <h1>{prismic.asText(page.data.title)}</h1>
+      <p>{page.data.description}</p> */}
       <SliceZone slices={page.data.slices} components={components} />
     </div>
   );
