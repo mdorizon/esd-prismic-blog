@@ -1,0 +1,14 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"articles_number": {
+				"__TYPE__": "FieldContent",
+				"value": "0",
+				"type": "Number"
+			}
+		},
+		"items": []
+	}
+]
